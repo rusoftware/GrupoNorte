@@ -3,7 +3,7 @@
          <div class="col-md-4">
             <div class="widget">
                <h5 class="subtitle">QUIENES SOMOS</h5>
-               <div class="textwidget">Somos un pujante Grupo Empresario, referente en Rosario y zona centro del país, que focaliza sus esfuerzos conjuntos, a fin de hacer de su ciudad un lugar en el que se desee y se elija para vivir.</div>
+               <div class="textwidget">Somos un Grupo de empresarios y profesionales, referentes en Rosario y la region, que focaliza sus esfuerzos en construir capital social, a fin de hacer de su ciudad un lugar en el que se desee y elija vivir.</div>
             </div>
          </div> <!-- end col-md-4 -->
          <div class="col-md-4">
