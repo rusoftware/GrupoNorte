@@ -1,0 +1,44 @@
+AddHandler x-httpd-php5-5 .php
+# AddHandler x-httpd-php5-6 .php
+
+<IfModule mod_rewrite.c>
+# Activar RewriteEngine
+RewriteEngine on
+RewriteBase /
+
+# ## SECCION PARA REDIRECCIONAR SIEMPRE CON/SIN WWW
+RewriteCond %{HTTP_HOST} ^gruponorte.org.ar [nc]
+RewriteRule ^(.*)$ http://www.gruponorte.org.ar/$1 [r=301,nc]
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+Rewriterule ^index.html$ index.php
+Rewriterule ^novedades.html$ notas.php
+Rewriterule ^proyectos.html$ proyectos.php
+Rewriterule ^miembros.html$ miembros.php
+Rewriterule ^historia.html$ historia.php
+Rewriterule ^grupo-norte.html$ grupo-norte.php
+Rewriterule ^nota/(.+)/(.+).html$ nota.php?nid=$1
+Rewriterule ^proyecto/(.+)/(.+).html$ proyecto.php?pid=$1
+Rewriterule ^proyectos/(.+)/(.+).html$ proyectos.php?cid=$1
+
+# Rewriterule ^evento/(.+)_(.+).html$ evento.php?evCod=$1
+# Rewriterule ^Notas/(.+)_(.+).html$ Nota.php?id=$1
+</IfModule>
+
+<IfModule deflate_module>
+    # Enable compression for the following file types.
+    AddOutputFilterByType            \
+     DEFLATE                         \
+      application/javascript         \
+      text/css                       \
+      text/html                      \
+      text/javascript                \
+      text/plain                     \
+      text/xml
+</IfModule>
+
+<FilesMatch "\.(html|htm|php|js|xml|txt|css)$">
+Header set Cache-Control "max-age=604800, public, must-revalidate"
+</FilesMatch>

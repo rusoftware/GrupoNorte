@@ -1,0 +1,61 @@
+AddHandler x-httpd-php5-5 .php
+# AddHandler x-httpd-php5-6 .php
+
+<IfModule mod_rewrite.c>
+# Activar RewriteEngine
+RewriteEngine on
+RewriteBase /
+
+# ## SECCION PARA REDIRECCIONAR SIEMPRE CON/SIN WWW
+RewriteCond %{HTTP_HOST} ^gruponorte.org.ar [nc]
+RewriteRule ^(.*)$ http://www.gruponorte.org.ar/$1 [r=301,nc]
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+Rewriterule ^index.html$ index.php
+Rewriterule ^nota/(.+)_(.+).html$ nota.php?id=$1
+
+Rewriterule ^quien-es-ron-burton.htm$ quien-es-ron-burton.php
+Rewriterule ^que-es-rotary.htm$ que-es-rotary.php
+Rewriterule ^el-evento.htm$ el-evento.php
+Rewriterule ^rosario-la-ciudad.htm$ rosario-la-ciudad.php
+Rewriterule ^contacto.htm$ contacto.php
+
+Rewriterule ^EN/index.html$ index.en.php
+Rewriterule ^EN/$ index.en.php
+Rewriterule ^EN$ index.en.php
+Rewriterule ^EN/ron-burton.htm$ quien-es-ron-burton.en.php
+Rewriterule ^EN/what-is-rotary.htm$ que-es-rotary.en.php
+Rewriterule ^EN/the-event.htm$ el-evento.en.php
+Rewriterule ^EN/rosario-the-city.htm$ rosario-la-ciudad.en.php
+Rewriterule ^EN/contact.htm$ contacto.en.php
+
+Rewriterule ^PT/index.html$ index.pt.php
+Rewriterule ^PT/$ index.pt.php
+Rewriterule ^PT$ index.pt.php
+Rewriterule ^PT/ron-burton.htm$ quien-es-ron-burton.pt.php
+Rewriterule ^PT/o-que-e-o-rotary.htm$ que-es-rotary.pt.php
+Rewriterule ^PT/conferencia-presidencial.htm$ el-evento.pt.php
+Rewriterule ^PT/rosario-a-cidade.htm$ rosario-la-ciudad.pt.php
+Rewriterule ^PT/contatos.htm$ contacto.pt.php
+
+# Rewriterule ^evento/(.+)_(.+).html$ evento.php?evCod=$1
+# Rewriterule ^Notas/(.+)_(.+).html$ Nota.php?id=$1
+</IfModule>
+
+<IfModule deflate_module>
+    # Enable compression for the following file types.
+    AddOutputFilterByType            \
+     DEFLATE                         \
+      application/javascript         \
+      text/css                       \
+      text/html                      \
+      text/javascript                \
+      text/plain                     \
+      text/xml
+</IfModule>
+
+<FilesMatch "\.(html|htm|php|js|xml|txt|css)$">
+Header set Cache-Control "max-age=604800, public, must-revalidate"
+</FilesMatch>

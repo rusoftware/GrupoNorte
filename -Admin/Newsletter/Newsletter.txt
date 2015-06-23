@@ -1,0 +1,11 @@
+
+Novedades de Gestión de Riesgos S.A. para ##Nombre##
+
+##Contenido##
+
+http://www.gersa.com.ar/
+
+Si no desea recibir novedades de GeRSA en el futuro, por favor haga clic aquí y su e-mail será eliminado automáticamente de nuestra lista de distribución.
+- debe estar conectado a Internet -
+Muchas gracias.
+http://www.gersa.com.ar/NewsletterBaja.php?Usuario=##ClaveBaja##
